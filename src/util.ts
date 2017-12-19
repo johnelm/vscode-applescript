@@ -42,7 +42,8 @@ const spawnPromise = (cmd: any, args: Array<string>, outputChannel) => {
         console.error(stdErr);
         return reject();
       }
-
+    });
+    process.stdout.on('finish', () => { // could also be finish or end, or close
       return resolve();
     });
   });
